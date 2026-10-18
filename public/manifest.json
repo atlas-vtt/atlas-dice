@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Atlas Dice",
+  "version": "0.3.1",
+  "description": "Roll from D&D Beyond and Demiplane Daggerheart character sheets in your Atlas VTT player table.",
+  "minimum_chrome_version": "120",
+  "permissions": ["storage"],
+  "host_permissions": ["https://play.atlas-vtt.dev/*", "https://play-staging.atlas-vtt.dev/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Atlas Dice" },
+  "icons": { "16": "icon-16.png", "48": "icon-48.png", "128": "icon-128.png" },
+  "content_scripts": [
+    {
+      "matches": ["https://play.atlas-vtt.dev/*", "https://play-staging.atlas-vtt.dev/*"],
+      "js": ["atlasContent.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://app.demiplane.com/*"],
+      "js": ["demiplanePage.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.dndbeyond.com/characters/*", "https://www.dndbeyond.com/profile/*/characters/*", "https://dndbeyond.com/characters/*", "https://app.demiplane.com/*"],
+      "js": ["sheetContent.js"],
+      "css": ["sheet.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'none'" }
+}

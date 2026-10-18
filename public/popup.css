@@ -1,0 +1,27 @@
+:root { color-scheme: light dark; --paper: #f4efdf; --ink: #302d25; --muted: #716956; --line: #d2c7ad; --accent: #516344; font: 14px/1.5 Georgia, 'Times New Roman', serif; color: var(--ink); background: var(--paper); }
+* { box-sizing: border-box; }
+body { width: 350px; margin: 0; }
+header { display: flex; align-items: center; gap: 12px; padding: 22px; border-bottom: 1px solid var(--line); }
+header img { border-radius: 8px; }
+h1 { font-size: 28px; line-height: 1.15; font-weight: 500; margin: 2px 0 0; letter-spacing: -.6px; }
+.eyebrow { margin: 0; color: var(--muted); font: 10px/1.4 'Trebuchet MS', sans-serif; letter-spacing: 1.2px; text-transform: uppercase; }
+.version { margin-left: auto; color: var(--muted); font-size: 12px; }
+main { padding: 22px; }
+label { display: block; font: bold 11px 'Trebuchet MS', sans-serif; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+select, button { width: 100%; font: 13px 'Trebuchet MS', sans-serif; padding: 11px; border: 1px solid var(--line); border-radius: 5px; color: var(--ink); background: transparent; }
+select { background: var(--paper); }
+button { cursor: pointer; transition: background-color 120ms ease; }
+button:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+button:active { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+button:disabled { opacity: .6; cursor: wait; }
+#status { font-size: 13px; margin: 9px 0 14px; color: var(--accent); min-height: 20px; }
+.instructions { margin-top: 24px; }
+h2 { margin: 0 0 8px; font-size: 19px; font-weight: 500; }
+p { margin: 0 0 12px; }
+dl { font-size: 12px; margin: 18px 0; }
+dl div { display: flex; justify-content: space-between; margin: 5px 0; }
+dt { font-family: 'Trebuchet MS', sans-serif; }
+dd { margin: 0; color: var(--muted); }
+.footnote { padding-top: 16px; border-top: 1px solid var(--line); margin: 0; color: var(--muted); font-size: 12px; }
+@media (prefers-color-scheme: dark) { :root { --paper: #282720; --ink: #ebe2ce; --muted: #aca38d; --line: #4c483b; --accent: #b3c29a; } }
+@media (prefers-reduced-motion: reduce) { button { transition: none; } }

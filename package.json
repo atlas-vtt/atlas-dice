@@ -1,0 +1,32 @@
+{
+  "name": "atlas-dice",
+  "version": "0.3.1",
+  "description": "Roll from D&D Beyond and Demiplane character sheets in Atlas VTT.",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-only",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "package": "npm run build && node scripts/package.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:browser": "node --test tests/extension.test.mjs",
+    "check": "npm run typecheck && npm test && npm run package && npm run test:browser"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.3.5",
+    "@types/node": "22.20.5",
+    "fflate": "0.8.3",
+    "playwright": "1.63.0",
+    "typescript": "5.8.3",
+    "vite": "6.4.3",
+    "vitest": "4.1.11"
+  },
+  "overrides": {
+    "vite": "$vite",
+    "vitest": "$vitest"
+  }
+}
